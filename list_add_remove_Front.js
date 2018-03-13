@@ -1,24 +1,29 @@
 // Chapter 5 - Linked Lists
 
 
-// Assumptions:
+// Setting up/Assumptions:
+
 
 // Function for creating a new node:
-function listNode(value){
+function ListNode(value){
 	this.val = value;
 	this.next = null;
 }
 
 // Function for creating a new list:
-function list(){
+function List(){
 	this.head = null;
 }
 
 // Call to list function to instantiate a new list object
-newSLL = new list();
+newSLL = new List();
 
-// give the head a value of 7
-newSLL.head = 7;
+
+// Create new node with value of 7
+newNode = new ListNode(7);
+
+// Set list head to be newNode (val = 7)
+newSLL.head = newNode;
 
 
 // List: Add Front
@@ -27,7 +32,7 @@ newSLL.head = 7;
 // create a new node, assign it to the list head, and return a pointer to the new head node.
 
 function addFront(sll, value){
-	var newNode = new listNode(value);
+	var newNode = new ListNode(value);
 	if (sll.head != null){
 		newNode.next = sll.head;
 		sll.head = newNode;
