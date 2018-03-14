@@ -21,7 +21,7 @@ myList = new List();
 // create 3 new nodes
 newNode = new ListNode(8);
 newNode1 = new ListNode(9);
-newNode2 = new ListNode("Tad");
+newNode2 = new ListNode(10);
 
 // set head to equal newNode (val = 8)
 myList.head = newNode;
@@ -31,21 +31,20 @@ newNode.next = newNode1;
 newNode1.next = newNode2;
 
 
-// List: Contains
+// SList: Display
 
-// Sam thinks Tad might be somewhere in a very long line waiting to attend the Superman movie.
-// Given a ListNode pointer and a val, return whether val is found in any node in the list
+// Create display(list) for debugging that returns a string containing all list values. Build what you wish console.log(myList) did!
 
-function contains(list, val){
-	var current = list.head;
-	while (current){
-		if (current.val == val){
-			return console.log('true')
-		}
-		current = current.next;
+function display(list){
+	var runner = list.head;
+	var displayList = [];
+	while (runner){
+		displayList.push(runner.val);
+		runner = runner.next;
 	}
-	return console.log('false');
+	return console.log(displayList.join());
 }
 
-// calls function with myList and value
-contains(myList, "Tad");
+display(myList);
+
+
