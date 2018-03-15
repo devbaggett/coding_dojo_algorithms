@@ -36,40 +36,30 @@ newNode1.next = newNode2;
 // Create removeVal(list, val). Given a pointer to the head ListNode, remove the node with the given val.
 // Return the new list. What will you do if val is not found?
 
-// function removeVal(list, val){
-// 	var runner = list.head;
-// 	var previous = runner;
-
-// 	while (runner){
-
-// 		if (runner.val == val){
-// 			console.log(runner)
-// 			previous.val = runner.next;
-			
-// 			return console.log(list.head);
-// 		}
-		
-// 		runner = runner.next;
-// 		previous = runner;
-// 	}
-// }
-
-// removeVal(myList, 10)
-
 function removeVal(list, val){
 	var runner = list.head;
-	var previous;
-
-	while (runner.next){
-
-		if (runner.val == val){
-			console.log(runner)
-			previous.next = runner.next;
-			return console.log(list.head);
-		}
-		
-		runner = runner.next;
+	var previous = list.head;
+	// make sure slist isn't empty
+	if (list.head){
 		previous = runner;
+		while (runner){
+			// check if value at head is equal to node being removed
+			if (list.head.val == val){
+				list.head = list.head.next;
+				console.log("First node (" + val + ") successfully removed")
+				return console.log(list);
+			}
+			else if (runner.val == val){
+				previous.next = runner.next;
+				return console.log(list);
+			}
+			previous = runner;
+			runner = runner.next;
+		}
+		return false;
+	}
+	else{
+		return console.log("List head can't be null")
 	}
 }
 
