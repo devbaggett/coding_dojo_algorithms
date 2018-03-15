@@ -18,10 +18,11 @@ function List(){
 // Call to list function to instantiate a new list object
 myList = new List();
 
-// create 3 new nodes
+// create 4 new nodes
 newNode = new ListNode(8);
 newNode1 = new ListNode(9);
 newNode2 = new ListNode(10);
+newNode3 = new ListNode(11);
 
 // set head to equal newNode (val = 8)
 myList.head = newNode;
@@ -29,6 +30,7 @@ myList.head = newNode;
 // chain other nodes together in linked list
 newNode.next = newNode1;
 newNode1.next = newNode2;
+newNode2.next = newNode3;
 
 
 // SList: Remove Val
@@ -43,7 +45,7 @@ function removeVal(list, val){
 	if (list.head){
 		previous = runner;
 		while (runner){
-			// check if value at head is equal to node being removed
+			// check if value at head is equal to val being removed and if it is the first node
 			if (list.head.val == val){
 				list.head = list.head.next;
 				console.log("First node (" + val + ") successfully removed")
@@ -56,6 +58,7 @@ function removeVal(list, val){
 			previous = runner;
 			runner = runner.next;
 		}
+		// if node (val) is not found
 		return false;
 	}
 	else{
@@ -63,4 +66,4 @@ function removeVal(list, val){
 	}
 }
 
-removeVal(myList, 10)
+removeVal(myList, 9)
