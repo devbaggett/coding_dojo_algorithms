@@ -45,7 +45,8 @@ function max(list){
 		}
 		runner = runner.next;
 	}
-	return console.log(max);
+	console.log(max);
+	return max;
 }
 
 // returns 10, the highest value in myList

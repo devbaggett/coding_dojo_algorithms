@@ -43,7 +43,8 @@ function length(list){
 		count ++;
 		runner = runner.next;
 	}
-	return console.log(count);
+	console.log(count);
+	return count
 }
 
 length(myList);

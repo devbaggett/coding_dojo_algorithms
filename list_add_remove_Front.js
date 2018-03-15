@@ -41,6 +41,7 @@ function addFront(sll, value){
 		sll.head = newNode;
 	}
 	console.log(sll.head);
+	return sll.head;
 }
 
 addFront(newSLL, "Rudy");
@@ -59,6 +60,7 @@ function removeFront(sll){
 		return null;
 	}
 	console.log(newSLL);
+	return newSLL;
 }
 
 removeFront(newSLL);

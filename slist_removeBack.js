@@ -42,7 +42,8 @@ function removeBack(list){
 		runner = runner.next;
 	}
 	previous.next = null;
-	return console.log(list);
+	console.log(list);
+	return list;
 }
 
 removeBack(myList);

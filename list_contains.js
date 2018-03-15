@@ -40,11 +40,13 @@ function contains(list, val){
 	var current = list.head;
 	while (current){
 		if (current.val == val){
-			return console.log('true')
+			console.log('true')
+			return true;
 		}
 		current = current.next;
 	}
-	return console.log('false');
+	console.log('false');
+	return false;
 }
 
 // calls function with myList and value

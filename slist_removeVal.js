@@ -48,12 +48,14 @@ function removeVal(list, val){
 			// check if value at head is equal to val being removed and if it is the first node
 			if (list.head.val == val){
 				list.head = list.head.next;
-				console.log("First node (" + val + ") successfully removed")
-				return console.log(list);
+				console.log("First node (" + val + ") successfully removed");
+				console.log(list);
+				return list;
 			}
 			else if (runner.val == val){
 				previous.next = runner.next;
-				return console.log(list);
+				console.log(list)
+				return list;
 			}
 			previous = runner;
 			runner = runner.next;
@@ -62,7 +64,7 @@ function removeVal(list, val){
 		return false;
 	}
 	else{
-		return console.log("List head can't be null")
+		return console.log("List head can't be null");
 	}
 }
 

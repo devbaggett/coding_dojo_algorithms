@@ -42,7 +42,8 @@ function display(list){
 		displayList.push(runner.val);
 		runner = runner.next;
 	}
-	return console.log(displayList.join());
+	console.log(displayList.join());
+	return displayList.join();
 }
 
 display(myList);

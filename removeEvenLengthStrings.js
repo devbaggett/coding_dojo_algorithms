@@ -20,6 +20,7 @@ function removeEvenLengthStrings(arr){
 		}
 	}
 	console.log(arr);
+	return arr;
 }
 
 removeEvenLengthStrings(myArr);
