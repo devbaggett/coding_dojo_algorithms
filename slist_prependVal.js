@@ -54,24 +54,23 @@ function prependVal(list, val, target){
 		}
 		else{
 			while (runner.next){
-				// runs if target isn't first or only node in list, and if not first iteration/traversal
-				if (runner.next.val == target && previous != runner){
+				// runs if target isn't first or only node in list
+				if (runner.next.val == target){
 					myNode.next = runner.next;
-					previous.next.next = myNode;
+					// if not first iteration/traversal
+					if (previous != runner){
+						previous.next.next = myNode;
+					}
+					// first iteration/traversal edge case where previous is equal to runner
+					else{
+						previous.next = myNode;
+					}
 					// shows that node was successfully added at end of list
 					console.log(previous.next);
 					return list;
 				}
-				// first iteration edge case where previous is equal to runner
-				else if (runner.next.val == target){
-					myNode.next = runner.next;
-					previous.next = myNode;
-					// shows that node was successfully added at end of list
-					console.log(previous);
-					return list;
-				}
 				previous = runner;
-				// sets runner to be on step ahead of previous variable to aid in traversal
+				// sets runner to be one step ahead of previous variable to aid in traversal
 				runner = runner.next;
 			}
 			// runs subsequent code when target does not exist in list, appending new node (myNode) to end of list instead
