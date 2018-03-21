@@ -32,6 +32,7 @@ newNode2.next = newNode3;
 
 // set head/tail of queue to be equal to newNode/newNode3 respectively
 myQueue.head = newNode;
+myQueue.tail = newNode3;
 
 
 // SLQueue: Dequeue
