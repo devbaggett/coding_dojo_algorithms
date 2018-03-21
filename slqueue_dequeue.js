@@ -32,7 +32,6 @@ newNode2.next = newNode3;
 
 // set head/tail of queue to be equal to newNode/newNode3 respectively
 myQueue.head = newNode;
-myQueue.tail = newNode3;
 
 
 // SLQueue: Dequeue
@@ -41,9 +40,9 @@ myQueue.tail = newNode3;
 // Remember, SLQueue uses singly linked lists (not arrays).
 
 function dequeue(queue){
-	// edge case dealing with empty or invalid queue
-	if (queue.head == null || !queue.tail || !queue.head){
-		console.log("Empty or invalid queue");
+	// edge case dealing with empty queue
+	if (!queue.head){
+		console.log("Empty queue");
 		return null;
 	}
 	// edge case dealing with queue of one node
