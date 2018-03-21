@@ -34,8 +34,6 @@ newNode2.next = newNode3;
 myQueue.head = newNode;
 myQueue.tail = newNode3;
 
-// console.log(myQueue)
-
 
 // SLQueue: Dequeue
 
@@ -43,10 +41,12 @@ myQueue.tail = newNode3;
 // Remember, SLQueue uses singly linked lists (not arrays).
 
 function dequeue(queue){
+	// edge case dealing with empty queue
 	if (queue == null){
-		console.log("empty queue");
+		console.log("Empty queue");
 		return null;
 	}
+	// edge case dealing with queue of one node
 	else if (queue.head == queue.tail){
 		var val = queue.head.val;
 		queue.head = null;
@@ -55,6 +55,7 @@ function dequeue(queue){
 		console.log(queue);
 		return val;
 	}
+	// normal logic proceeds for queues of 2 or more nodes
 	else {
 		var val = queue.head.val;
 		queue.head = queue.head.next;
