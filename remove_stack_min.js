@@ -24,10 +24,10 @@ function SLStack(){
 // Call to SLStack function to instantiate a new stack object
 myStack = new SLStack();
 
-// create 4 new nodes
+// create 4 new nodes, one with duplicate value
 newNode = new ListNode(8);
 newNode1 = new ListNode(9);
-newNode2 = new ListNode(10);
+newNode2 = new ListNode(8);
 newNode3 = new ListNode(11);
 
 // chain other nodes together in linked list
@@ -41,44 +41,41 @@ myStack.head = newNode;
 
 // **************************************************************************************************************
 // **************************************************************************************************************
-// Stack: Copy
+// Stack: Remove Stack min
 //
-// Given a Stack, create a new second Stack and copy values from first Stack into second Stack, so they pop in same order.
-// Use only one Queue for additional storage, and only public Stack/Queue interfaces.
+// Remove a stack's minimum value, otherwise leaving values in order. If duplicate min values are found, remove
+// them all. Use only one additional queue (plus primitive local vars) for storage.
 // ************************************************************************************************************** 
 // ************************************************************************************************************** 
 
-function stackCopy(stack){
+function removeStackMin(stack){
+	var min = stack.head;
 	var myQueue = new SLQueue();
-	var stackCopy = new SLStack();
-	var tempVal = 0;
-	// removes each node in stack and places it in myQueue
+	while (stack.head){
+		if (min.val > stack.head.val){
+			min = stack.head;
+		}
+		enqueue(myQueue, stackPop(stack));
+	}
+	while (myQueue.head){
+		if (min.val == myQueue.head.val){
+			dequeue(myQueue);
+		}
+		else{
+			stackPush(stack, dequeue(myQueue));
+		}
+	}
 	while (stack.head){
 		enqueue(myQueue, stackPop(stack));
 	}
-	// removes each node from queue and places back into queue, only now reversed from original (LIFO vs FIFO)
-	while(myQueue.head){
-		stackPush(stack, tempVal = dequeue(myQueue));
+	while (myQueue.head){
+		stackPush(stack, dequeue(myQueue));
 	}
-	// removes each node in stack and places back in myQueue, only now it's reversed
-	while (stack.head){
-		enqueue(myQueue, stackPop(stack));
-	}
-	// removes each node from queue back to each stack in original order
-	while(myQueue.head){
-		// creates a new node with tempVal equal to the node val we are dequeuing
-		var myNode = new ListNode(tempVal = dequeue(myQueue));
-		// pushes the new node to both the original stack and copy in original order
-		stackPush(stack, myNode.val);
-		stackPush(stackCopy, myNode.val);
-	}
-	console.log(stackCopy);
-	return stackCopy;
+	console.log(stack);
+	return stack;
 }
 
-stackCopy(myStack)
-
-
+removeStackMin(myStack)
 
 
 
