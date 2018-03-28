@@ -32,7 +32,7 @@ function binarySearch(arr, val){
 		var mid = Math.floor((start + end)/2);
 		// check if mid point is equal to val
 		if (arr[mid] == val){
-			console.log("Returned val: ", val);
+			console.log("Returned val: " + val);
 			return true;
 		}
 		// if val is less than mid point, set end to mid
