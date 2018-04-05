@@ -33,27 +33,28 @@ newNode1.next = newNode2;
 newNode2.next = newNode3;
 
 
-function reverse(list){
-  var first = list.head;
-  var second = first.next;
-  // console.log(second)
-  list.head.next = null;
-  
-  while(second){
-    const temp = second.next;
-    console.log(first)
-    second.next = first;
-    // console.log()
-  
-    first = second;
-    second = temp;
-    // console.log(temp)
-  }
-  
-  
-  list.head = first;
-  // console.log(list.head)
+
+// SList: Shift Right
+
+// Given a list, shift nodes to the right, by a given number shiftBy. These shifts are circular: 
+// when shifting a node off list's end, it reappears at list's start. For list a=>b=>c, shift(1) 
+// should return c=>a=>b.
+
+
+// Second: also handle negative shiftBy (to left).
+
+
+function shiftRight(list, shiftBy){
+	var pre = list.head;
+	var runner = pre.next;
+	for (var i = 0; i < shiftBy; i ++){
+		while(runner.next){
+			pre = runner;
+			runner = runner.next
+		}
+		runner.next = list.head;
+		pre.next = null;
+		list.head = runner;
+	}
+	console.log(myList)
 }
-
-
-reverse(myList)

@@ -33,27 +33,3 @@ newNode1.next = newNode2;
 newNode2.next = newNode3;
 
 
-function reverse(list){
-  var first = list.head;
-  var second = first.next;
-  // console.log(second)
-  list.head.next = null;
-  
-  while(second){
-    const temp = second.next;
-    console.log(first)
-    second.next = first;
-    // console.log()
-  
-    first = second;
-    second = temp;
-    // console.log(temp)
-  }
-  
-  
-  list.head = first;
-  // console.log(list.head)
-}
-
-
-reverse(myList)
